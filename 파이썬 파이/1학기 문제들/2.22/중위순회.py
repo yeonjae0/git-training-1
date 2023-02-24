@@ -21,7 +21,7 @@ for t in range(1, 11):
         while len(i) != 4:
             i.append('0')
 # 여기는 프린트 구간
-#     print(f'#{t}', end=' ')
-#     in_order(1)  # 루트 정점 번호는 항상 1(문제)
-#     print()
+    print(f'#{t}', end=' ')
+    in_order(1)  # 루트 정점 번호는 항상 1(문제)
+    print()
 print(data)

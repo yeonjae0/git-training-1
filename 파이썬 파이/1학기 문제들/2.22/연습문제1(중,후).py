@@ -11,7 +11,6 @@ sys.stdin = open('input(ex).txt')
 
 def in_order(n):
     if n:
-        # print(1234)
         in_order(tree[n][0])
         print(n, end=' ')
         in_order(tree[n][1])

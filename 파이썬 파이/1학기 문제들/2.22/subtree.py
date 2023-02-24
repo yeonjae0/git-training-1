@@ -4,20 +4,15 @@ import sys
 sys.stdin = open("input.txt", "r", encoding='UTF-8')
 
 def subtree(N):  # N은 루트
-    #global tree
     global cnt
     if N > 0:
         cnt += 1
-        #print(f'tree[N][0] {tree[N][0]}')
         subtree(tree[N][0])
-        #print(f'tree[N][1] {tree[N][1]}')
         subtree(tree[N][1])
 
     # elif (tree[N][1] > 0) and (N > 0):
     #     cnt += 1
-    else:
-        #cnt += 1
-        return cnt
+    return cnt
 
 T = int(input())
 for t in range(1, T+1):
@@ -30,11 +25,15 @@ for t in range(1, T+1):
         p, c = edge[i * 2], edge[i * 2 + 1]
 
         # [0, 0, 0] -> 0: left, 1: right, 2: parent
-        if not tree[p][0]: # left 기록 x -> 기록하기
+        if not tree[p][0]:  # left 기록 x -> 기록하기
             tree[p][0] = c
         else:
             tree[p][1] = c
         tree[c][2] = p
 
-    print(tree)
-    print(subtree(N))
+
+    print(f'#{t} {subtree(N)}')
+
+# cnt 계속 None으로 print되는 문제가 생겼었음
+# 이럴 때는 함수 호출하고 그 아래에 print(cnt)
+# print(cnt) ->  global cnt None 값 나올 때 사용 !!!
